@@ -169,7 +169,7 @@ bookingRouter.patch("/bookingover/:bookingId", async (req, res) => {
         //console.log(`Booked by : ${booking.bookedBy}`);
         let limiter = await limiterModel.findOne({ bookedBy: booking.bookedBy, date: findDate });
         // console.log("Limiter doc : ", limiter);
-        if (limiter.hours - 0.5 == 0) {
+        if (limiter && limiter.hours - 0.5 == 0) {
             await limiterModel.findByIdAndDelete(limiter._id);
         }
         else {
@@ -216,7 +216,7 @@ bookingRouter.patch("/cancelbooking/:bookingId", async (req, res) => {
         let cancelBooking = await bookingModel.findByIdAndUpdate(req.params.bookingId, { status: "cancel", refundable }, { new: true });
         let findDate = getRealDate(booking.date);
         let limiter = await limiterModel.findOne({ bookedBy: booking.bookedBy, date: findDate });
-        if (limiter.hours - 0.5 == 0) {
+        if (limiter && limiter.hours - 0.5 == 0) {
             await limiterModel.findByIdAndDelete(limiter._id);
         }
         else {
