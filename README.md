@@ -261,16 +261,6 @@ Configure additional variables as required.
 
 ---
 
-## 🔮 Future Improvements
-
-* Authentication.
-* Admin dashboard.
-* Recurring bookings.
-* Booking analytics.
-* Calendar integration.
-* Room availability calendar.
-* Real-time slot updates.
-
 ---
 
 ## 👨‍💻 Developed By
