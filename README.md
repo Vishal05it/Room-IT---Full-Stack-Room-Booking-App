@@ -2,7 +2,7 @@
 
 A full-stack Meeting Room Booking System built to simplify meeting room reservations while preventing double bookings and ensuring fair slot allocation.
 
-**🌐 Live Demo:** https://roomit.vercel.app/
+**🌐 Live Demo:** https://roomit.vercel.app/](https://github.com/Vishal05it/roomit/
 
 **📂 GitHub Repository:** https://github.com/Vishal05it/roomit
 
