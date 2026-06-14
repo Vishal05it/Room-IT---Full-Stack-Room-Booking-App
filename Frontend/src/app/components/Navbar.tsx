@@ -91,9 +91,11 @@ export default function Navbar() {
   const checkStatus = async () => {
     await Promise.all(
       allBookings.map(async (booking: Booking) => {
-        let expired = dateConvertor(booking.date, booking.slot);
-        if (expired) {
-          await finishBooking(booking._id);
+        if (booking.status == "active") {
+          let expired = dateConvertor(booking.date, booking.slot);
+          if (expired) {
+            await finishBooking(booking._id);
+          }
         }
       }),
     );
