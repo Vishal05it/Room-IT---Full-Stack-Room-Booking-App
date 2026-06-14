@@ -99,9 +99,9 @@ export default function MyBookings() {
       allBookings.map(async (booking: Booking) => {
         if (booking.status == "active") {
           let expired = dateConvertor(booking.date, booking.slot);
-          console.log(
-            `Booking for ${booking.roomId.title} is expired ? : ${expired}`,
-          );
+          // console.log(
+          //   `Booking for ${booking.roomId.title} is expired ? : ${expired}`,
+          // );
           if (expired) {
             await finishBooking(booking._id);
           }

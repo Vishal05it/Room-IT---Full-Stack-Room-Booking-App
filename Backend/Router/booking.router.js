@@ -162,6 +162,12 @@ bookingRouter.patch("/bookingover/:bookingId", async (req, res) => {
                 success: false,
             });
         }
+        if (booking.status == "cancel" || booking.status == "over") {
+            return res.status(400).json({
+                message: "Booking cancelled or already over",
+                success: false,
+            });
+        }
         let room = await roomModel.findByIdAndUpdate(booking.roomId, { cleanTime: Date.now() + 30000 }, { new: true });
         let overBooking = await bookingModel.findByIdAndUpdate(req.params.bookingId, { status: "over" }, { new: true });
         let findDate = getRealDate(booking.date);
