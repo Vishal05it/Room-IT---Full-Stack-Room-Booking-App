@@ -3,6 +3,7 @@ export const bookingCancellor = (
   scheduleTime,
   cancelTime = `${new Date().getHours().toString().padStart(2, "0")}:${new Date().getMinutes().toString().padStart(2, "0")}`,
 ) => {
+  // Cancel time : `${new Date().getHours().toString().padStart(2, "0")}:${new Date().getMinutes().toString().padStart(2, "0")}`
   // let eligibleRefund = true;
   let dateObj = new Date();
   let docString = scheduleDate.toString();
@@ -66,9 +67,15 @@ export const bookingCancellor = (
           // console.log(`Schedule hours more than 12 and cancel hours also more than 12`);
           if (scheduleHours - cancelHours > 2) {
             // console.log(`Exactly 2 hours @ 00`);
+            console.log(
+              `Schedule minutes = ${scheduleMinutes} and cancel minutes = ${cancelMinutes} here`,
+            );
             return true;
           } else if (scheduleHours - cancelHours == 2) {
-            if (scheduleMinutes - cancelMinutes >= 0) {
+            console.log(
+              `Schedule minutes = ${scheduleMinutes} and cancel minutes = ${cancelMinutes}`,
+            );
+            if (scheduleMinutes - cancelMinutes == 0) {
               // console.log(`Exactly 2 hours @ 30`);
               return true;
             } else {

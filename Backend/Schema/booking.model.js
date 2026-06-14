@@ -39,6 +39,10 @@ const bookingSchema = mongoose.Schema({
         required: [true, "Time of booking is required"]
     },
 }, { timestamps: true, strict: true });
-bookingSchema.index({ slot: 1, date: 1, roomId: 1 }, { unique: true, });
+bookingSchema.index({ slot: 1, date: 1, roomId: 1, }, {
+    unique: true, partialFilterExpression: {
+        status: "active",
+    },
+});
 const bookingModel = mongoose.model("booking", bookingSchema);
 module.exports = bookingModel;

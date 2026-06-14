@@ -23,7 +23,7 @@ type Form = {
 };
 export default function BookRoomModal({ setOpenBookModal, roomId }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  let { userEmail, setAllBookings, btnLoading, setBtnLoading } =
+  let { userEmail, setAllBookings, btnLoading, setBtnLoading, allBookings } =
     useAllContexts();
 
   let onChangeFunc = (
@@ -151,6 +151,9 @@ export default function BookRoomModal({ setOpenBookModal, roomId }: Props) {
     };
     fetchSlots();
   }, [form.date]);
+  useEffect(() => {
+    allBookings.sort((a, b) => b.bookedAt - a.bookedAt);
+  }, [allBookings]);
   return (
     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
       <audio ref={audioRef} src="/Faah.mp3" style={{ display: "none" }}></audio>

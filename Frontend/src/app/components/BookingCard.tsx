@@ -56,6 +56,7 @@ export default function BookingCard({
           allBookings.map((booking) => {
             if (booking._id == bookingId) {
               booking.status = "cancel";
+              booking.refundable = cancelData.booking.refundable;
             }
             return booking;
           }),
@@ -90,14 +91,14 @@ export default function BookingCard({
       setDeleteBtn(false);
     }
   };
-  useEffect(() => {
-    let check = bookingCancellor(date, slot);
-    if (check) {
-      setRefundableState(true);
-    } else {
-      setRefundableState(false);
-    }
-  }, [new Date().getMinutes()]);
+  // useEffect(() => {
+  //   let check = bookingCancellor(date, slot);
+  //   if (check) {
+  //     setRefundableState(true);
+  //   } else {
+  //     setRefundableState(false);
+  //   }
+  // }, [new Date().getMinutes()]);
   return (
     <div
       style={{
