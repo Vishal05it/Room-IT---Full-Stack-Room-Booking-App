@@ -158,25 +158,27 @@ export default function BookingCard({
             <span
               className={`text-xs px-3 py-1 rounded-full ${
                 status == "active"
-                  ? refundableState
+                  ? refundable
                     ? "bg-green-100 text-green-700"
                     : "bg-yellow-100 text-yellow-700"
                   : status == "cancel"
-                    ? refundableState
+                    ? refundable
                       ? "bg-green-100 text-green-700"
                       : "bg-red-100 text-red-700"
                     : "bg-gray-100 text-gray-700"
               }`}
             >
-              {status == "active"
-                ? refundable
-                  ? "Cancellation Refundable"
-                  : "Cancellation Non-Refundable"
-                : status == "cancel"
+              <span className={refundable ? `text-green-700` : `text-red-700`}>
+                {status == "active"
                   ? refundable
-                    ? "Cancelled (Refundable)"
-                    : "Cancelled (Non-Refundable)"
-                  : "Booking Completed"}
+                    ? "Cancellation Refundable"
+                    : "Cancellation Non-Refundable"
+                  : status == "cancel"
+                    ? refundable
+                      ? "Cancelled (Refundable)"
+                      : "Cancelled (Non-Refundable)"
+                    : "Booking Completed"}
+              </span>
             </span>
           </div>
           {/* Action Buttons */}

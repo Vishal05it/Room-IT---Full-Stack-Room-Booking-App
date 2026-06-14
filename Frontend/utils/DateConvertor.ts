@@ -25,7 +25,10 @@ export const dateConvertor = (date: string, slot: string) => {
         let endSlot = Number(slot.slice(8, 10));
         //console.log(`End Slot : ${endSlot}`);
         let endMinutes = Number(slot.slice(11, 13));
-        //console.log(`End minutes : ${endMinutes}`);
+        // console.log(`End minutes : ${endMinutes}`);
+        if (dateObj.getHours() == 23 && endSlot == 0) {
+          return false;
+        }
         if (dateObj.getHours() > endSlot) {
           return true;
         }
