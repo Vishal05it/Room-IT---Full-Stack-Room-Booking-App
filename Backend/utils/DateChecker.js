@@ -22,9 +22,9 @@ export const verifyDate = (date, slot) => {
             // let endMinutes = Number(slot.slice(11, 13));
             // console.log(`End minutes : ${endMinutes}`);
             //console.log(`Start minutes : ${startMinutes}`);
-            if (dateObj.getHours() > 12 && startSlot < 12) {
-                return true;
-            }
+            // if (dateObj.getHours() > 12 && startSlot < 12) {
+            //     return true;
+            // }
             if (dateObj.getHours() > startSlot) {
                 return false;
             }
