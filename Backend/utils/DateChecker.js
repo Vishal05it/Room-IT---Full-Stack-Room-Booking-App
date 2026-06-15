@@ -29,7 +29,8 @@ export const verifyDate = (date, slot) => {
                 return false;
             }
             if (dateObj.getHours() == startSlot) {
-                if (dateObj.getMinutes() >= startMinutes) {
+                console.log(`Same hours`)
+                if (dateObj.getMinutes() - startMinutes <= 0) {
                     return false;
                 }
             }

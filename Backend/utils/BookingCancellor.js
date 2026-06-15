@@ -54,13 +54,7 @@ export const bookingCancellor = (
             return true;
           }
           if (cancelHours == 23 && scheduleHours == 0) {
-            if (scheduleMinutes - cancelMinutes >= 0) {
-              // console.log(`Passed by 11 PM minutes match`);
-              return true;
-            } else {
-              // console.log(`11 PM Minutes up`);
-              return false;
-            }
+            return false;
           }
           if (cancelHours == 23 && scheduleHours > 1) {
             // console.log(`11 PM Hours ahead`);
