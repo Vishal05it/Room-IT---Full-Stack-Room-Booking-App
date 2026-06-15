@@ -1,5 +1,7 @@
 export const verifyDate = (date, slot) => {
-    const dateObj = new Date();
+    const dateObj = new Date(now.toLocaleString("en-US", {
+        timeZone: "Asia/Kolkata",
+    }));
     let dateString = date.toString();
     let year = dateString.slice(0, 4);
     if (year < dateObj.getFullYear()) {
