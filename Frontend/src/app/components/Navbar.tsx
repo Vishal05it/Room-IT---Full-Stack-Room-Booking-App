@@ -102,7 +102,13 @@ export default function Navbar() {
   };
   useEffect(() => {
     checkStatus();
-  }, [new Date().getMinutes()]);
+  }, [
+    new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Kolkata",
+      }),
+    ).getMinutes(),
+  ]);
   return (
     <>
       <nav className="bg-white border-b shadow-sm fixed z-100 top-0 left-0 right-0">

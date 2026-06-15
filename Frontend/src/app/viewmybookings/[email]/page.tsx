@@ -114,7 +114,13 @@ export default function MyBookings() {
       await checkStatus();
     };
     fetchStatus();
-  }, [new Date().getMinutes()]);
+  }, [
+    new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Kolkata",
+      }),
+    ).getMinutes(),
+  ]);
   useEffect(() => {
     const fetchBookings = async () => {
       await getAllBookings();

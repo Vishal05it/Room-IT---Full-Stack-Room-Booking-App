@@ -1,5 +1,9 @@
 export const dateConvertor = (date: string, slot: string) => {
-  const dateObj = new Date();
+  const dateObj = new Date(
+    new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Kolkata",
+    }),
+  );
   let year = Number(date.slice(0, 4));
   let month = Number(date.slice(5, 7));
   let day = Number(date.slice(8, 10));

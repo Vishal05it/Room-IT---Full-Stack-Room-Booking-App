@@ -1,11 +1,17 @@
 export const bookingCancellor = (
   scheduleDate,
   scheduleTime,
-  cancelTime = `${new Date().getHours().toString().padStart(2, "0")}:${new Date().getMinutes().toString().padStart(2, "0")}`,
+  cancelTime = `${new Date(new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Kolkata",
+  })).getHours().toString().padStart(2, "0")}:${new Date(new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Kolkata",
+  })).getMinutes().toString().padStart(2, "0")}`,
 ) => {
   // Cancel time : `${new Date().getHours().toString().padStart(2, "0")}:${new Date().getMinutes().toString().padStart(2, "0")}`
   // let eligibleRefund = true;
-  let dateObj = new Date();
+  let dateObj = new Date(new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Kolkata",
+  }));
   let docString = scheduleDate.toString();
   // console.log(`Today's year : ${dateObj.getFullYear()}`)
   // console.log(`Today's month : ${dateObj.getMonth() + 1}`)
